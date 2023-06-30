@@ -14,8 +14,9 @@ public class Movie {
 		this.language = language;
 		this.genre = genre;
 	}
-	
-	
+	/*
+	 * getters and setters
+	 */
 	public String getName() {
 		return name;
 	}
@@ -40,5 +41,6 @@ public class Movie {
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
-
+	
+	
 }

@@ -1,10 +1,15 @@
 
-public class GuestUser extends User {
-    public GuestUser(String name) {
-        super(name);
-    }
+public class GuestUser extends User{
 
-    public void register(String username, String password){
+	
+	
+	private int id;
+	private String name;
 
-    }
+	public GuestUser(int id, String name) {
+		super(id, name);
+	}
+	
+	
+
 }

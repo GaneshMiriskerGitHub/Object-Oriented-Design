@@ -2,28 +2,38 @@ import java.util.ArrayList;
 
 public class Theater {
 	
-	private static Integer idCounter = 0;
-	private Integer id;
+	private static int idcounter;
+	private int id;
 	private String name;
+	private int capacity;
 	private String location;
-	private Integer capacity;
 	
 	private ArrayList<Show> shows;
-
-	public Theater(Integer id, String name, String location, Integer capacity, ArrayList<Show> shows) {
-		this.idCounter++;
-		this.id = idCounter;
+	
+	public Theater(String name, int capacity, String location, ArrayList<Show> shows) {
+		idcounter++;
+		this.id = idcounter;
 		this.name = name;
-		this.location = location;
 		this.capacity = capacity;
-		this.shows = shows;
+		this.location = location;
+		this.shows = new ArrayList<>();
 	}
-
-	public Integer getId() {
+	
+	
+	public void updateShow(Show oldShow, Show newShow) {
+		
+	}
+	
+	
+	
+	/*
+	 * getters and setters
+	 */
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -35,20 +45,20 @@ public class Theater {
 		this.name = name;
 	}
 
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
 	public String getLocation() {
 		return location;
 	}
 
 	public void setLocation(String location) {
 		this.location = location;
-	}
-
-	public Integer getCapacity() {
-		return capacity;
-	}
-
-	public void setCapacity(Integer capacity) {
-		this.capacity = capacity;
 	}
 
 	public ArrayList<Show> getShows() {
@@ -61,8 +71,4 @@ public class Theater {
 	
 	
 
-	public void updateShow(Show oldShow, Show newShow) {
-		
-	}
-	
 }

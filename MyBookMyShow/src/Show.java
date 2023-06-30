@@ -1,93 +1,78 @@
 import java.util.Date;
 
 public class Show {
-
-	private static int idCounter = 0;
-	private Integer id;
-	private Date showTime;
-	private Integer availableSeats;
-
+	
+	private static int idcounter;
+	private int id;
+	private Date show_di_date_time;
+	private int availableSeats;
+	
 	private Movie movie;
 	private Theater theater;
-
-	public Show(Integer id, Date showTime, Integer availableSeats, Movie movie, Theater theater) {
-		idCounter += 1;
-		this.id = idCounter;
-		this.showTime = showTime;
-		this.availableSeats = availableSeats;
+	
+	
+	
+	
+	public Show(Date show_di_date_time, int availableSeats, Movie movie, Theater theater) {
+		idcounter++;
+		this.id = idcounter;
+		this.show_di_date_time = show_di_date_time;
+		this.availableSeats = theater.getCapacity();
 		this.movie = movie;
 		this.theater = theater;
 	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Date getShowTime() {
-		return showTime;
-	}
-
-	public void setShowTime(Date showTime) {
-		this.showTime = showTime;
-	}
-
-	public Integer getAvailableSeats() {
-		return availableSeats;
-	}
-
-	public void setAvailableSeats(Integer availableSeats) {
-		this.availableSeats = availableSeats;
-	}
-
-	public Movie getMovie() {
-		return movie;
-	}
-
-	public void setMovie(Movie movie) {
-		this.movie = movie;
-	}
-
-	public Theater getTheater() {
-		return theater;
-	}
-
-	public void setTheater(Theater theater) {
-		this.theater = theater;
-	}
-
+	
+	
 	public void updateShow() {
+		
 	}
-
-	public synchronized Ticket bookTicket(RegisteredUser user, int seats) {
-		if (availableSeats >= seats && seats > 0) {
-			Ticket ticket = new Ticket();
-			availableSeats -= seats;
-			ticket.setOwner(user.getName());
-			ticket.setBookedShow(this);
-			ticket.setBookingTime(new Date());
-			ticket.setNumberOfSeats(seats);
-			System.out.println("Successfully booked");
-			user.bookingHistory.add(ticket);
-			return ticket;
-		} else {
-			System.out.println("Seats not Available");
+	
+	public  Ticket bookTicket(RegisteredUser user, int noOfSeats) {
+		if(availableSeats >= noOfSeats) {
+			availableSeats -= noOfSeats;
+			Ticket tickets = new Ticket(user.getName(), new Date(),noOfSeats, this);
+			System.out.println("yeyyii tickets book ayi peekineyi thee party,,,");
+			return tickets;
+		}else {
+			System.out.println("ayyo... saripada tickets levuu shit, sare le, intiki dobbeyi");
 			return null;
 		}
 	}
 	
-	@Override
-    public String toString() {
-        return "Show{" +
-                "id=" + id +
-                ", showTime=" + showTime +
-                ", movie=" + movie.getName() +
-                ", theater=" + theater.getName() +
-                ", availableSeats=" + availableSeats +
-                '}';
-    }
+	/*
+	 * getters and setters
+	 */
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Date getShow_di_date_time() {
+		return show_di_date_time;
+	}
+	public void setShow_di_date_time(Date show_di_date_time) {
+		this.show_di_date_time = show_di_date_time;
+	}
+	public int getAvailableSeats() {
+		return availableSeats;
+	}
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
+	public Movie getMovie() {
+		return movie;
+	}
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+	public Theater getTheater() {
+		return theater;
+	}
+	public void setTheater(Theater theater) {
+		this.theater = theater;
+	}
+	
+	
 
 }

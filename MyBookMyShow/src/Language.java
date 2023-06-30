@@ -1,6 +1,6 @@
 
 public enum Language {
 	
-	TELUGU, ENGLISH, KANNADA, HINDI
+	TELUGU, ENGLISH, KANNDA, HINDI;
 
 }

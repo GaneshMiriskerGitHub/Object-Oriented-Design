@@ -1,14 +1,14 @@
 import java.util.ArrayList;
-import java.util.ArrayList;
 
 public class RegisteredUser extends User {
-    public ArrayList<Ticket> bookingHistory;
+	
+	private ArrayList<Ticket> bookingHistory;
 
-    public RegisteredUser(String name) {
-        super(name);
-        this.bookingHistory = new ArrayList<>();
-    }
-    public void cancelTicket(Ticket ticket){
-
-    } 
+	public RegisteredUser(int id, String name) {
+		super(id, name);
+		this.bookingHistory = new ArrayList<>();;
+	}
+	
+	
+	
 }
