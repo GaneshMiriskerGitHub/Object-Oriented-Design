@@ -39,6 +39,9 @@ public class Show {
 		}
 	}
 	
+	
+	
+	
 	/*
 	 * getters and setters
 	 */
