@@ -1,5 +1,8 @@
 package com.amazon.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,5 +66,9 @@ public class HomeController {
 		model.addAttribute("inputData", inputData);
 		return "result";
 	}
+	
+	
+	
+	
 
 }
